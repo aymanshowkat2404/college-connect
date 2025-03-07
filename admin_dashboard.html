@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - College Connect</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li class="menu-item">
+                <a href="{% url 'admin_dashboard' %}"><i class="fas fa-tachometer-alt"></i><span class="menu-text">Dashboard</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'hostel' %}"><i class="fas fa-university"></i><span class="menu-text">Hostel Management</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'events' %}"><i class="fas fa-calendar-alt"></i><span class="menu-text">Event Management</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'review' %}"><i class="fas fa-star"></i><span class="menu-text">Review Management</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i><span class="menu-text">Logout</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="header">
+            <h1>Admin Dashboard</h1>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="dashboard-card">
+                <h2>College Management</h2>
+                <p>Manage colleges, add new colleges, update or delete existing ones.</p>
+                <a href="{% url 'hostel' %}" class="btn">Go to College Management</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Event Management</h2>
+                <p>Manage events, create new events, update or delete existing ones.</p>
+                <a href="{% url 'events' %}" class="btn">Go to Event Management</a>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Review Management</h2>
+                <p>View and manage user reviews, approve or delete reviews.</p>
+                <a href="{% url 'review' %}" class="btn">Go to Review Management</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
