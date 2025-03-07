@@ -1,21 +1,16 @@
 {% load static %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colleges - College Tour</title>
-
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-    <!-- Link JavaScript -->
+    <title>{% block title %}CMR University{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
     <script defer src="{% static 'js/scripts.js' %}"></script>
-
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-
+    <!-- Sidebar -->
     <div class="sidebar">
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
@@ -25,56 +20,48 @@
                 <a href="{% url 'index' %}"><i class="fas fa-home"></i><span class="menu-text">Home</span></a>
             </li>
             <li class="menu-item">
-                <a href="{% url 'colleges' %}"><i class="fas fa-university"></i><span class="menu-text">Colleges</span></a>
+                <a href="{% url 'admission' %}"><i class="fas fa-user-graduate"></i><span class="menu-text">Admission</span></a>
             </li>
             <li class="menu-item">
-                <a href="{% url 'admin_login' %}"><i class="fas fa-user-shield"></i><span class="menu-text">Admin</span></a>
+                <a href="{% url 'hostel' %}"><i class="fas fa-bed"></i><span class="menu-text">Hostel</span></a>
             </li>
-            
             <li class="menu-item">
-                <a href="{% url 'login' %}"><i class="fas fa-user"></i><span class="menu-text">Login</span></a>
+                <a href="{% url 'facilities' %}"><i class="fas fa-building"></i><span class="menu-text">Facilities</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'events' %}"><i class="fas fa-calendar-alt"></i><span class="menu-text">Events</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'map' %}"><i class="fas fa-map-marked-alt"></i><span class="menu-text">Map</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'review' %}"><i class="fas fa-star"></i><span class="menu-text">Review</span></a>
             </li>
         </ul>
     </div>
+
     <!-- Header -->
     <header class="header">
-       
-        <div class="header-overlay">
-        <h1>College Connect</h1>
+        CMR UNIVERSITY
     </header>
-   
+
     <!-- Main Content -->
     <div class="main-content">
-        <img src="{% static 'images/clg.avif' %}" alt="Background Image" class="background-image">
-        <div class="overlay">   
-
-        <!-- Boxes Section -->
-        <div class="boxes-container">
-            <div class="box">
-                <h3>CMR University</h3>
-                <a href="{% url 'cmr_university' %}"> Click</a>
-            </div>
-            <div class="box">
-                <h3>Reva University</h3>
-                <a href="{% url 'reva' %}"> Click</a>
-            </div>
-           
-            <div class="box">
-                <h3>Kristu Jayanti College</h3>
-                <a href="{% url 'kj' %}"> Click</a>
-            </div>
-            <div class="box">
-                <h3>Presidency University</h3>
-                <a href="{% url 'presidency' %}"> Click</a>
-            </div>
-            <div class="box">
-                <h3>Christ University</h3>
-                <a href="{% url 'christ' %}"> Click</a>
+        <!-- Image with Overlay Text -->
+        <div class="image-container">
+            <img src="{% static 'images/cmru.jpg' %}" alt="CMR University Campus" class="campus-image">
+            <div class="overlay-text">
+                <div class="text-box">
+                    <h2>Campus Life at CMR University</h2>
+                    <p>
+                        New state-of-the-art campus. CMR University’s new 60-acre lakefront campus is located in North Bangalore, just off the Hennur-Bagalur Road. Developed as a greenfield project, it is easily accessible from Bellary Road (New Airport Road) and well within BDA limits.
+                        The current design of the campus features world-class amenities that include a residential zone with staff and student housing. The academic spaces are designed to encourage cross-disciplinary learning and interaction among students. International standard indoor sports complex and separate cricket, athletics, and football grounds give students ample opportunities to train and excel in sports. The CMR University campus also features a variety of spaces for cultural activities that will be able to accommodate a range of audiences.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-            
-   
 
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
