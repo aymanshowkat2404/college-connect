@@ -1,0 +1,25 @@
+{% extends 'cmr_university.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-content">
+    <h1>Upcoming Events</h1>
+    <p>Explore the exciting events happening at our college.</p>
+
+    <!-- Events List -->
+    <div class="events-list">
+        {% for event in events %}
+        <div class="event-item">
+            <h2>{{ event.name }}</h2>
+            <p>{{ event.description }}</p>
+            <div class="event-details">
+                <p><strong>Venue:</strong> {{ event.venue }}</p>
+                <p><strong>Date:</strong> {{ event.date }}</p>
+                <p><strong>Time:</strong> {{ event.time }}</p>
+                <p><strong>Entry Price:</strong> {{ event.entry_price }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
