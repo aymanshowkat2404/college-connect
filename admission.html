@@ -1,0 +1,116 @@
+{% extends 'cmr_university.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    /* Admission Form Styles */
+    .page-content {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 30px;
+    }
+
+    .admission-form h1 {
+        color: #2c3e50;
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .admission-form p {
+        color: #7f8c8d;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .admission-form {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .admission-form label {
+        display: block;
+        margin-bottom: 8px;
+        color: #2c3e50;
+        font-weight: 600;
+    }
+
+    .admission-form input,
+    .admission-form select,
+    .admission-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 2px solid #bdc3c7;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+    }
+
+    .admission-form input:focus,
+    .admission-form select:focus,
+    .admission-form textarea:focus {
+        border-color: #3498db;
+        outline: none;
+    }
+
+    .admission-form button.btn {
+        background-color: #3498db;
+        color: white;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    .admission-form button.btn:hover {
+        background-color: #2980b9;
+    }
+
+    /* File Upload Custom Styling */
+    .admission-form input[type="file"] {
+        padding: 8px;
+        border: 2px dashed #bdc3c7;
+    }
+
+    /* Error Message Styling */
+    .admission-form .errorlist {
+        color: #e74c3c;
+        margin-bottom: 15px;
+        list-style: none;
+        padding-left: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        .page-content {
+            padding: 15px;
+        }
+        
+        .admission-form {
+            padding: 20px;
+        }
+        
+        .admission-form h1 {
+            font-size: 1.8em;
+        }
+    }
+</style>
+
+<div class="page-content">
+    <h1>Admission Form</h1>
+    <p>Please fill out the form below to apply for admission.</p>
+
+    <form method="post" enctype="multipart/form-data" class="admission-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Submit Application</button>
+    </form>
+</div>
+{% endblock %}
