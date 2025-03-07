@@ -1,0 +1,68 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Reviews - College Connect</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li class="menu-item">
+                <a href="{% url 'index' %"><i class="fas fa-home"></i><span class="menu-text">Home</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'colleges' %}"><i class="fas fa-university"></i><span class="menu-text">Colleges</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'admin_login' %}"><i class="fas fa-user-shield"></i><span class="menu-text">Admin</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'login' %}"><i class="fas fa-user"></i><span class="menu-text">Login</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'review' %}"><i class="fas fa-star"></i><span class="menu-text">Review</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <header class="header">
+        <img src="{% static 'images/black.webp' %}" alt="College Tour Logo" class="header-logo">
+        <div class="header-overlay">
+            <h1>College Connect</h1>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="review-container">
+            <h2>Write a Review</h2>
+            <form method="post" action="{% url 'review' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="college">College Name</label>
+                    <input type="text" id="college" name="college" required>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating (1-5)</label>
+                    <input type="number" id="rating" name="rating" min="1" max="5" required>
+                </div>
+                <div class="form-group">
+                    <label for="review">Your Review</label>
+                    <textarea id="review" name="review" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
