@@ -1,0 +1,59 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Tour</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script defer src="{% static 'js/scripts.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li class="menu-item">
+                <a href="#"><i class="fas fa-home"></i><span class="menu-text">Home</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'colleges' %}"><i class="fas fa-university"></i><span class="menu-text">Colleges</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="{% url 'admin_login' %}"><i class="fas fa-user-shield"></i><span class="menu-text">Admin</span></a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="{% url 'login' %}"><i class="fas fa-user"></i><span class="menu-text">Login</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <header class="header">
+        <img src="{% static 'images/black.webp' %}" alt="College Tour Logo" class="header-logo">
+        <div class="header-overlay">
+            <h1>College Connect</h1>
+        </div>
+    </header>
+    
+    <div class="main-content">
+        <img src="{% static 'images/home.webp' %}" alt="Background Image" class="background-image">
+        <div class="overlay">
+            <h1 class="fade-in">Explore. Experience. Excel.</h1>
+            <p class="fade-in">Explore top colleges and pave the path to your future success.</p>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search colleges..." class="search-input">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+
+            <button id="joinButton" class="btn fade-in">
+                <a href="{% url 'colleges' %}" class="btn fade-in">Explore Now</a>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
