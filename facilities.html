@@ -3,48 +3,22 @@
 
 {% block content %}
 <div class="page-content">
-    <h1>College Map and Directions</h1>
+    <h1>Facility Locator</h1>
     <p>Find your way around CMR University with our interactive map and blueprints.</p>
 
     <!-- Live Location Map -->
     <div class="map-section">
-        <h2>Live Location</h2>
+        
        
-        <div id="map" style="height: 500px; width: 100%; margin-top: 20px;"></div>
-        <p><a href="https://www.google.com/maps/dir/?api=1&destination=13.117650628971115,77.65581777041695" target="_blank">Get Directions to CMR University</a></p>
-        <p><a href="https://www.google.com/maps/dir/?api=1&destination=13.119323758038982,77.66261570263471" target="_blank">Get Directions to CMR University Back Gate</a></p>
-        <p><a href="https://www.google.com/maps/dir/?api=1&destination=13.11923494315872,77.66021244325486" target="_blank">Get Directions to SOET</a></p>
+        
+        <p><a href="https://www.google.com/maps/dir/?api=1&destination=13.117650628971115,77.65581777041695" target="_blank"> CMR University</a></p>
+        <p><a href="https://www.google.com/maps/dir/?api=1&destination=13.119323758038982,77.66261570263471" target="_blank">Get CMR University Back Gate</a></p>
+        <p><a href="https://www.google.com/maps/dir/?api=1&destination=13.11923494315872,77.66021244325486" target="_blank">CMR UNIVERSITY SOET</a></p>
     </div>
 
-    <!-- Building List -->
-    <div class="building-list">
-        <h2>Facilities Locator</h2>
-        <p>Find the location of different buildings in the college.</p>
-        {% for building in buildings %}
-        <div class="building-item">
-            <h3>{{ building.name }}</h3>
-            <p>{{ building.description }}</p>
-            <button onclick="showOnMap({{ building.latitude }}, {{ building.longitude }}, '{{ building.name }}')" class="btn">
-                Show on Map
-            </button>
-            <p><a href="https://www.google.com/maps/dir/?api=1&destination={{ building.latitude }},{{ building.longitude }}" target="_blank">Get Directions to {{ building.name }}</a></p>
-        </div>
-        {% endfor %}
-    </div>
+    
 
-    <!-- Blueprint Section -->
-    <div class="blueprint-section">
-        <h2>College Blueprints</h2>
-        <p>Explore the college layout with detailed blueprints and descriptions.</p>
-        <div class="blueprint-list">
-            {% for blueprint in blueprints %}
-            <div class="blueprint-item">
-                <img src="{% static blueprint.image %}" alt="College Blueprint" class="blueprint-image">
-                <p>{{ blueprint.description }}</p>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+   
 </div>
 
 <!-- Include Google Maps JavaScript API -->
