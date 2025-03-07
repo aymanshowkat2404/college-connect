@@ -1,0 +1,43 @@
+{% extends 'cmr_university.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-content">
+    <h1>Hostel Facilities</h1>
+    <p>Explore our hostel facilities and accommodation options.</p>
+
+    <!-- Boys Hostel Section -->
+    <div class="hostel-section">
+        <h2>{{ boys_hostel.name }}</h2>
+        <div class="hostel-details">
+            <h3>Facilities</h3>
+            <ul>
+                {% for facility in boys_hostel.facilities %}
+                <li>{{ facility }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Room Availability</h3>
+            <p>{{ boys_hostel.rooms_available }} rooms available</p>
+            <h3>Cost</h3>
+            <p>₹{{ boys_hostel.cost_per_month }} per month</p>
+        </div>
+    </div>
+
+    <!-- Girls Hostel Section -->
+    <div class="hostel-section">
+        <h2>{{ girls_hostel.name }}</h2>
+        <div class="hostel-details">
+            <h3>Facilities</h3>
+            <ul>
+                {% for facility in girls_hostel.facilities %}
+                <li>{{ facility }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Room Availability</h3>
+            <p>{{ girls_hostel.rooms_available }} rooms available</p>
+            <h3>Cost</h3>
+            <p>₹{{ girls_hostel.cost_per_month }} per month</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
